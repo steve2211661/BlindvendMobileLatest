@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Blindvend",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

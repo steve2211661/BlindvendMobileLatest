@@ -1,0 +1,7 @@
+{
+  "name": "Blindvend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
