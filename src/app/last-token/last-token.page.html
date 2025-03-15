@@ -1,0 +1,81 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="previousUrl"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Last Token Made</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-card color="success" [hidden]="TokenMade">
+    <ion-card-content>
+      <ion-item >
+        <ion-label position="floating" [hidden]="TokenMade" class="Test2">Token Created By: </ion-label>
+        <ion-input [(ngModel)]="Username" type="tel" class="Test" [readonly]="true"></ion-input>
+      </ion-item>
+
+      <ion-item >
+        <ion-label position="floating" [hidden]="TokenMade" class="Test2">Token Type: </ion-label>
+        <ion-input [(ngModel)]="TokenType" type="tel" class="Test" [readonly]="true"></ion-input>
+      </ion-item>
+
+      <ion-item >
+        <ion-label position="floating" [hidden]="TokenMade" class="Test2">Date Token Made: </ion-label>
+        <ion-input [(ngModel)]="DateTokensMade" type="tel" class="Test" [readonly]="true"></ion-input>
+      </ion-item>
+
+      <ion-item >
+        <ion-label position="floating" [hidden]="TokenMade" class="Test2">Time Token Made: </ion-label>
+        <ion-input [(ngModel)]="TimeTokensMade" type="tel" class="Test" [readonly]="true"></ion-input>
+      </ion-item>
+
+      <ion-item [hidden]="TokenTypeB">
+        <ion-label position="floating" [hidden]="TokenTypeB" class="Test2">Token Amount: </ion-label>
+        <ion-input [(ngModel)]="TokenAmount" type="tel" class="Test" [readonly]="true"></ion-input>
+      </ion-item>
+
+      <ion-item [hidden]="TokenTypeB">
+        <ion-label position="floating" [hidden]="TokenTypeB" class="Test2">Meter Number: </ion-label>
+        <ion-input [(ngModel)]="MeterNumber" type="tel" class="Test" [readonly]="true"></ion-input>
+      </ion-item>
+
+      <ion-item [hidden]="TokenTypeB">
+        <ion-label position="floating" [hidden]="TokenTypeB" class="Test2">Cost Of Units: </ion-label>
+        <ion-input [(ngModel)]="CostOfUnits" type="tel" class="Test" [readonly]="true"></ion-input>
+      </ion-item>
+
+      <ion-item >
+        <ion-label position="floating" [hidden]="TokenMade" class="Test2">Token 1: </ion-label>
+        <ion-input [(ngModel)]="Token1" type="tel" class="Test" [readonly]="true"></ion-input>
+      </ion-item>
+
+      <ion-item [hidden]="TokenTypeB">
+        <ion-label position="floating" [hidden]="TokenTypeB" class="Test2">Token 2: </ion-label>
+        <ion-input [(ngModel)]="Token2" type="tel" class="Test" [readonly]="true"></ion-input>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+
+  <form [formGroup]="PersonalForm">
+  <ion-card color="tertiary">
+  <ion-card-content>
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">Meter Number : </ion-label>
+        <ion-input [(ngModel)]="MeterNum" type="tel" (ngModelChange) ="doSomething(MeterNum)" formControlName="MeterNum"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+</form>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="full" style="--background:blue" (click)="BasicShare()" [disabled]="gotResponse"><ion-icon name="share"></ion-icon>Share</ion-button>
+    <ion-button expand="full" style="--background:blue" (click)="checkReff()" [disabled]="!PersonalForm.valid">Confirm</ion-button>
+  </ion-toolbar>
+</ion-footer>

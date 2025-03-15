@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Share Whatsapp</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="Search..." [(ngModel)]="filterTerm" animated="true"></ion-searchbar>
+  <ion-list>
+    <ion-item button *ngFor="let c of contacts | filter:filterTerm" value="c.displayName" (click)="ContactClicked(c.phoneNumbers[0])">
+     <ion-label><ion-icon name="logo-whatsapp" float-right></ion-icon>          {{c.displayName}}
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

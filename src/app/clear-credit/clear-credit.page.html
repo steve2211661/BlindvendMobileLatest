@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="previousUrl"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Clear Credit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="success" [hidden]="TokenMade">
+    <ion-card-content>
+      <ion-item >
+        <ion-label position="floating" [hidden]="TokenMade" class="Test2">Clear Credit Token : </ion-label>
+        <ion-input [(ngModel)]="TokenMsg" type="tel" class="Test"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <form [formGroup]="PersonalForm">
+  <ion-card color="primary">
+    <ion-card-content>
+      <ion-list>
+      <ion-item>
+        <ion-label position="floating">Meter Number : </ion-label>
+        <ion-input [(ngModel)]="MeterNum" type="tel" maxlength="13" (ngModelChange) ="doSomething(MeterNum)" formControlName="MeterNum"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">SGC : </ion-label>
+        <ion-input [(ngModel)]="SGC" type="tel" formControlName="SGC"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">KRN : </ion-label>
+        <ion-input [(ngModel)]="KRN" type="tel"  formControlName="KRN"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">TI : </ion-label>
+        <ion-input [(ngModel)]="TI" type="tel"  formControlName="TI"></ion-input>
+      </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+</form>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="full" style="--background:blue" (click)="BasicShare()" [disabled]="gotResponse"><ion-icon name="share"></ion-icon>Share</ion-button>
+    <ion-button expand="full" style="--background:blue" (click)="checkReff()" [disabled]="!PersonalForm.valid">Confirm</ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title></ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-img src="../assets/EkhwesiLogo.PNG"></ion-img>
+  
+    <ion-item>
+      <ion-label position="floating">Username</ion-label>
+      <ion-input [(ngModel)]="email" name="email" placeholder="Username" type="email"></ion-input>
+    </ion-item>
+    
+    <ion-item>
+       <ion-label position="floating">Password</ion-label>
+       <ion-input [(ngModel)]="password" name="password" type="password" placeholder="Password"></ion-input>
+    </ion-item>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="full" style="--background:blue" (click)="Login()">Login</ion-button>
+  </ion-toolbar>
+</ion-footer>

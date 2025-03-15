@@ -1,0 +1,83 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="previousUrl"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Credit</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card color="success" [hidden]="TokenMade">
+    <ion-card-content>
+      <ion-item >
+        <ion-label position="floating" class="Test2" [hidden]="TokenMade">Credit Token : {{kwh}}</ion-label>
+        <ion-input [(ngModel)]="TokenMessage" type="tel" class="Test"></ion-input>
+      </ion-item>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card color="primary">
+    <ion-card-content>
+      <form [formGroup]="PersonalForm">
+      <ion-list>
+        <ion-item>
+          <ion-label position="floating">Meter Number : </ion-label>
+          <ion-input [(ngModel)]="MeterNum" type="tel" maxlength="13" (ngModelChange) ="doSomething(MeterNum)" formControlName="MeterNum"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">SGC : </ion-label>
+          <ion-input [(ngModel)]="SGC" type="tel"  formControlName="SGC"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">KRN : </ion-label>
+          <ion-input [(ngModel)]="KRN" type="tel"  formControlName="KRN"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">TI : </ion-label>
+          <ion-input [(ngModel)]="TI" type="tel"  formControlName="TI"></ion-input>
+        </ion-item>
+      </ion-list>
+    </form>
+      <ion-item>
+        <ion-label>Credit Type</ion-label>
+        <ion-select [(ngModel)]="CreditType1" (ionChange)="radioChecked($event.target.value)">
+          <ion-select-option value="Units">Units</ion-select-option>
+          <ion-select-option value="Currency">Currency</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <ion-item [hidden]="CreditType"> 
+        <ion-label position="floating">Units : </ion-label>
+        <ion-input [(ngModel)]="Units" type="number" ></ion-input>
+      </ion-item>
+
+      <ion-item [hidden]="CreditTypeCurrency">
+        <ion-label>Currency Type</ion-label>
+        <ion-select [(ngModel)]="Currency" (ionChange)="CurrencyChecked($event.target.value)" [value]="Rand">
+          <ion-select-option value="Rand">Rand</ion-select-option>
+          <ion-select-option value="Metical">Metical</ion-select-option>
+          <ion-select-option value="Pula">Pula</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item [hidden]="CreditTypeCurrency">
+        <ion-label position="floating">Rate : </ion-label>
+        <ion-input [(ngModel)]="Rate" type="number" ></ion-input>
+      </ion-item>
+
+      <ion-item [hidden]="CreditTypeCurrency">
+        <ion-label position="floating" [hidden]="CreditTypeCurrency">Currency : </ion-label>
+        <ion-input [(ngModel)]="Currency1" type="number" ></ion-input>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="full" style="--background:blue" (click)="BasicShare()" [disabled]="gotResponse"><ion-icon name="share"></ion-icon>Share</ion-button>
+    <ion-button expand="full" style="--background:blue" (click)="CheckReff()" [disabled]="!PersonalForm.valid">Confirm</ion-button>
+  </ion-toolbar>
+</ion-footer>
